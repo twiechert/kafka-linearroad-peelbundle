@@ -23,7 +23,6 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="kafka-linearroad-datagens" />
-        <module name="kafka-linearroad-flink-jobs" />
         <module name="kafka-linearroad-peelextensions" />
       </profile>
     </annotationProcessing>

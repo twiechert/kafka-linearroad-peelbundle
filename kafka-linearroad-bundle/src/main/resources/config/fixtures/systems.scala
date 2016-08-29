@@ -27,16 +27,17 @@ class systems extends ApplicationContextAware {
   // ---------------------------------------------------
 
   @Bean(name = Array("kafka-0.10.0"))
-  def `kafka-0.10.0"`: Kafka = new Kafka(
-    version      = "0.10.0.",
+  def `kafka-0.10.0`: Kafka = new Kafka(
+    version      = "0.10.0",
     configKey    = "kafka",
     lifespan     = Lifespan.EXPERIMENT,
+    dependencies = Set(ctx.getBean("zookeeper-3.4.5", classOf[Zookeeper])),
     mc           = ctx.getBean(classOf[Compiler])
   )
 
-  @Bean(name = Array("zookeeper-3.3.6"))
-  def `zookeeper-3.3.6`: Zookeeper = new Zookeeper(
-    version      = "3.3.6",
+  @Bean(name = Array("zookeeper-3.4.5"))
+  def `zookeeper-3.4.5`: Zookeeper = new Zookeeper(
+    version      = "3.4.5",
     configKey    = "zookeeper",
     lifespan     = Lifespan.EXPERIMENT,
     mc           = ctx.getBean(classOf[Compiler])

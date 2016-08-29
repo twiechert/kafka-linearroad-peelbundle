@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -16,6 +17,10 @@
         <repository>
             <id>clojars.org</id>
             <url>http://clojars.org/repo</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -43,6 +48,26 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>kafka-linearroad-kafka-jobs</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.twiechert</groupId>
+            <artifactId>kafka-streams-linearroad</artifactId>
+            <version>4248e67bec</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            <!--    <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion> -->
+            </exclusions>
         </dependency>
 
         <!-- Peel -->
@@ -106,11 +131,11 @@
                         <phase>deploy</phase>
                         <configuration>
                             <tasks if="bundle.bin">
-                                <mkdir dir="${bundle.bin}" />
+                                <mkdir dir="${bundle.bin}"/>
                                 <exec executable="cp">
-                                    <arg value="-R" />
-                                    <arg value="./target/${project.parent.artifactId}" />
-                                    <arg value="${bundle.bin}" />
+                                    <arg value="-R"/>
+                                    <arg value="./target/${project.parent.artifactId}"/>
+                                    <arg value="${bundle.bin}"/>
                                 </exec>
                             </tasks>
                         </configuration>
@@ -178,4 +203,5 @@
             </build>
         </profile>
     </profiles>
+
 </project>

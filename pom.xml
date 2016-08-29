@@ -170,6 +170,11 @@
     <module>kafka-linearroad-bundle</module>
     <module>kafka-linearroad-peelextensions</module>
     <module>kafka-linearroad-datagens</module>
-      <module>kafka-linearroad-kafka-jobs</module>
   </modules>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 </project>

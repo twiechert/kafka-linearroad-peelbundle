@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="Maven 1" modules="kafka-linearroad-spark-jobs,kafka-linearroad-datagens,kafka-linearroad-peelextensions,kafka-linearroad-flink-jobs">
+    <profile name="Maven 1" modules="kafka-linearroad-spark-jobs,kafka-linearroad-flink-jobs,kafka-linearroad-datagens,kafka-linearroad-peelextensions">
       <option name="deprecationWarnings" value="true" />
       <option name="featureWarnings" value="true" />
     </profile>

@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/kafka-linearroad.iml" filepath="$PROJECT_DIR$/kafka-linearroad.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka-linearroad-bundle/kafka-linearroad-bundle.iml" filepath="$PROJECT_DIR$/kafka-linearroad-bundle/kafka-linearroad-bundle.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka-linearroad-datagens/kafka-linearroad-datagens.iml" filepath="$PROJECT_DIR$/kafka-linearroad-datagens/kafka-linearroad-datagens.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kafka-linearroad-kafka-jobs/kafka-linearroad-flink-jobs.iml" filepath="$PROJECT_DIR$/kafka-linearroad-kafka-jobs/kafka-linearroad-flink-jobs.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka-linearroad-peelextensions/kafka-linearroad-peelextensions.iml" filepath="$PROJECT_DIR$/kafka-linearroad-peelextensions/kafka-linearroad-peelextensions.iml" />
     </modules>
   </component>

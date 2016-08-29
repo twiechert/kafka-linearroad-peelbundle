@@ -26,9 +26,11 @@ class Kafka(
     )
   })
 
-  override def start(): Unit = if (!isUp) {
-    this.servers.foreach(start)
-    isUp = true
+  override def start(): Unit = {
+    if (!isUp) {
+      this.servers.foreach(start)
+      isUp = true
+    }
   }
 
   override def stop(): Unit = this.servers.foreach(stop)
@@ -43,8 +45,7 @@ class Kafka(
     shell !
       s"""
          |ssh -t -t "$user@${s.host}" << SSHEND
-         |  ${config.getString(s"system.$configKey.path.home")}/bin/kafka-server-start.sh start
-         |  ${config.getString(s"system.$configKey.config.path.config")}/server.properties
+         |  ${config.getString(s"system.$configKey.path.home")}/bin/kafka-server-start.sh  -daemon ${config.getString(s"system.$configKey.path.config")}/server.properties
          |  exit
          |SSHEND
       """.stripMargin.trim
