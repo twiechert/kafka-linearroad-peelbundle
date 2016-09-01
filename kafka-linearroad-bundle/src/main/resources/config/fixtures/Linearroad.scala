@@ -40,7 +40,7 @@ class Linearroad extends ApplicationContextAware {
         """.stripMargin.trim,
       config  = ConfigFactory.parseString(""),
       runs    = 1,
-      runner  = ctx.getBean("kafka-0.10.0", classOf[Kafka])
+      runner  = ctx.getBean("kafka-0.10.0.1", classOf[Kafka])
      // inputs  = Set(ctx.getBean("dataset.words.static", classOf[DataSet])),
      // outputs = Set(ctx.getBean("wordcount.output", classOf[ExperimentOutput]))
     )

@@ -26,9 +26,10 @@ class systems extends ApplicationContextAware {
   // Systems
   // ---------------------------------------------------
 
-  @Bean(name = Array("kafka-0.10.0"))
-  def `kafka-0.10.0`: Kafka = new Kafka(
-    version      = "0.10.0",
+
+  @Bean(name = Array("kafka-0.10.0.1"))
+  def `kafka-0.10.0.1`: Kafka = new Kafka(
+    version      = "0.10.0.1",
     configKey    = "kafka",
     lifespan     = Lifespan.EXPERIMENT,
     dependencies = Set(ctx.getBean("zookeeper-3.4.5", classOf[Zookeeper])),

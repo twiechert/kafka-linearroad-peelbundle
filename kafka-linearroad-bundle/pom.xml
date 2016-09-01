@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.github.twiechert</groupId>
             <artifactId>kafka-streams-linearroad</artifactId>
-            <version>4248e67bec</version>
+            <version>105be19</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>

@@ -54,7 +54,15 @@ class Kafka(
   private def stop(s: Kafka.Server) = {
     logger.info(s"Stopping Kafka at ${s.host}")
     val user = config.getString(s"system.$configKey.user")
-    shell ! s""" ssh $user@${s.host} ${config.getString(s"system.$configKey.path.home")}/bin/kafka-server-stop.sh """
+    shell !
+      s"""
+         |ssh -t -t "$user@${s.host}" << SSHEND
+         |  ${config.getString(s"system.$configKey.path.home")}/bin/kafka-server-stop.sh
+         |  ; rm -r ${config.getString(s"system.$configKey.path.log")}; mkdir ${config.getString(s"system.$configKey.path.log")}
+         |  exit
+         |SSHEND
+      """.stripMargin.trim
+
   }
 
   private def isRunning(s: Kafka.Server) = {
@@ -63,9 +71,9 @@ class Kafka(
     val user = config.getString(s"system.$configKey.user")
 
     logger.info(s"checking if Kafka is running at ${s.host} using user ${user}")
-
-
-    (shell ! s""" ssh $user@${s.host} "${config.getString(s"system.$configKey.path.home")}/bin/kafka-topics.sh " """) == 0
+    val exitcode =  shell ! s""" ssh $user@${s.host} "ps ax | grep -i 'kafka\\.Kafka'" """
+    logger.info(s"exitcode is ${exitcode}")
+    exitcode == 0
   }
 
   private def servers = {

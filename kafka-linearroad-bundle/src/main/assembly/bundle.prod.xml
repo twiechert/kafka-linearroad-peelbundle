@@ -75,6 +75,15 @@
             </includes>
         </fileSet>
 
+        <fileSet>
+            <directory>src/main/resources/lib</directory>
+            <outputDirectory>apps</outputDirectory>
+            <fileMode>0755</fileMode>
+            <includes>
+                <include>libdatadriver.so</include>
+            </includes>
+        </fileSet>
+
         <!-- copy config directory -->
         <fileSet>
             <directory>src/main/resources/config</directory>
