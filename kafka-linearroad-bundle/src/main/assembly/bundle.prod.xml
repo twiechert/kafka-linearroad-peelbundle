@@ -80,7 +80,7 @@
             <outputDirectory>apps</outputDirectory>
             <fileMode>0755</fileMode>
             <includes>
-                <include>libdatadriver.so</include>
+                <include>*</include>
             </includes>
         </fileSet>
 
